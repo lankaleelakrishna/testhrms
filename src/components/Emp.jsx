@@ -75,10 +75,20 @@ const ProfileCard = ({ employeeDetails, photoBase64, loading }) => {
           boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
         },
         fontFamily: '"Inter", sans-serif',
-        height: 340,
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
-      <CardContent sx={{ p: 0 }}>
+      <CardContent
+        sx={{
+          p: 0,
+          flexGrow: 1,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-evenly",
+        }}
+      >
         <Box sx={{ display: "flex", justifyContent: "space-between", mb: 0.5 }}>
           <Typography
             variant="h6"
@@ -668,17 +678,17 @@ const EmpDashboard = () => {
           <Box sx={{ height: "var(--navbar-height)" }} />
           <Container maxWidth={false} sx={{ paddingLeft: 0, paddingRight: 0 }}>
             <Grid container spacing={2} justifyContent="flex-start">
-              <Grid item xs={12} sm={6} md={4} lg={3}>
+              <Grid item xs={12} sm={6} md={4} lg={3} sx={{ flex: { xs: "1 1 100%", sm: "1 1 45%", md: "1 1 260px" }, "& > *": { height: "100% !important" } }}>
                 <ProfileCard
                   employeeDetails={employeeDetails}
                   photoBase64={photoBase64}
                   loading={loading}
                 />
               </Grid>
-              <Grid item xs={12} sm={6} md={4} lg={3}>
+              <Grid item xs={12} sm={6} md={4} lg={3} sx={{ flex: { xs: "1 1 100%", sm: "1 1 45%", md: "1 1 260px" }, "& > *": { height: "100% !important" } }}>
                 <Leavecard />
               </Grid>
-              <Grid item xs={12} sm={12} md={4} lg={3}>
+              <Grid item xs={12} sm={12} md={4} lg={3} sx={{ flex: { xs: "1 1 100%", sm: "1 1 100%", md: "1 1 260px" } }}>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                       {cardData.map((card, index) => (
@@ -817,31 +827,31 @@ const EmpDashboard = () => {
                   <HolidaySlider />
                 </Box>
               </Grid>
-              <Grid item xs={12} sm={12} md={4} lg={3}>
+              <Grid item xs={12} sm={12} md={4} lg={3} sx={{ flex: { xs: "1 1 100%", sm: "1 1 100%", md: "1 1 260px" }, "& > *": { height: "100% !important" } }}>
                 <PunchSystem
                   setSnackbarMessage={setSnackbarMessage}
                   setSnackbarSeverity={setSnackbarSeverity}
                   setSnackbarOpen={setSnackbarOpen}
                 />
               </Grid>
-              <Grid item xs={12} md={8} lg={6}>
+              <Grid item xs={12} md={6} lg={4} sx={{ flex: { xs: "1 1 100%", md: "1 1 360px" }, "& > *": { height: "100% !important" } }}>
                 <TotalDuration
                   setSnackbarMessage={setSnackbarMessage}
                   setSnackbarSeverity={setSnackbarSeverity}
                   setSnackbarOpen={setSnackbarOpen}
                 />
               </Grid>
-              <Grid item xs={12} md={6} lg={6}>
+              <Grid item xs={12} md={6} lg={4} sx={{ flex: { xs: "1 1 100%", md: "1 1 360px" }, "& > *": { height: "100% !important" } }}>
                 <WorkingHoursChart />
               </Grid>
-              <Grid item xs={12} md={6} lg={6}>
+              <Grid item xs={12} md={12} lg={4} sx={{ flex: { xs: "1 1 100%", md: "1 1 360px" }, "& > *": { height: "100% !important" } }}>
                 <BirthdayCard
                   setSnackbarMessage={setSnackbarMessage}
                   setSnackbarSeverity={setSnackbarSeverity}
                   setSnackbarOpen={setSnackbarOpen}
                 />
               </Grid>
-              <Grid item xs={12} md={12} lg={6}>
+              <Grid item xs={12} sx={{ flex: "1 1 100%" }}>
                 <EmployeeAttendanceCalendar
                   setSnackbarMessage={setSnackbarMessage}
                   setSnackbarSeverity={setSnackbarSeverity}

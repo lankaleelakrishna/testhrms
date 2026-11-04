@@ -149,7 +149,7 @@ const ProfileCard = ({ employeeDetails, photoBase64, loading }) => {
     <Card
       sx={{
         ...commonStyles.card,
-        width: "250px",
+        width: "100%",
         p: { xs: 1.5, sm: 2 },
         animation: `${slideIn} 0.5s ease-out`,
         height: { xs: 300, sm: 320, md: 340 },
@@ -1105,8 +1105,20 @@ const Dashboard = () => {
 
       <Grid
         container
-        spacing={{ xs: 1.5, sm: 2, md: 3 }}
-        sx={{ mb: { xs: 2, sm: 3, md: 4 } }}
+        sx={{
+          mb: { xs: 2, sm: 3, md: 4 },
+          display: "grid",
+          gridTemplateColumns: { xs: "1fr", md: "repeat(12, minmax(0, 1fr))" },
+          gap: { xs: 1.5, sm: 2, md: 3 },
+          "& > *": { minWidth: 0, maxWidth: "100%", width: "auto", gridColumn: "1 / -1" },
+          "& > :nth-child(1)": { gridColumn: { md: "span 3" } },
+          "& > :nth-child(2)": { gridColumn: { md: "span 3" } },
+          "& > :nth-child(3)": { gridColumn: { md: "span 3" } },
+          "& > :nth-child(4)": { gridColumn: { md: "span 3" } },
+          "& > :nth-child(5)": { gridColumn: { md: "span 4" } },
+          "& > :nth-child(6)": { gridColumn: { md: "span 3" } },
+          "& > :nth-child(7)": { gridColumn: { md: "span 5" } },
+        }}
       >
         <Grid item xs={12} sm={6} md={4} lg={3}>
           <ProfileCard
@@ -1257,7 +1269,7 @@ const Dashboard = () => {
           />
         </Grid>
         <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} sx={{ mb: 4 }}>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12}>
             <TotalDuration
               setSnackbarMessage={setSnackbarMessage}
               setSnackbarSeverity={setSnackbarSeverity}
@@ -1274,7 +1286,7 @@ const Dashboard = () => {
           lg={6}
           spacing={{ xs: 1.5, sm: 2, md: 3 }}
         >
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12}>
             <BirthdayCard
               setSnackbarMessage={setSnackbarMessage}
               setSnackbarSeverity={setSnackbarSeverity}

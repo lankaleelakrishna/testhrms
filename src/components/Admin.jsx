@@ -85,7 +85,7 @@ const ProfileCard = ({ employeeDetails, photoBase64, loading }) => {
   return (
     <Card
       sx={{
-        width: { xs: "100%", sm: 250, md: 250 },
+        width: "100%",
         maxWidth: "100%",
         bgcolor: COLORS.secondary,
         borderRadius: "8px",
@@ -761,7 +761,19 @@ const CEOComponent = () => {
           <Grid
             container
             justifyContent="flex-start"
-            sx={{ gap: { xs: 1, sm: 2, md: 1.5 } }}
+            sx={{
+              display: "grid",
+              gridTemplateColumns: { xs: "1fr", md: "repeat(12, minmax(0, 1fr))" },
+              gap: { xs: 1, sm: 2, md: 1.5 },
+              "& > *": { minWidth: 0, maxWidth: "100%", width: "auto", gridColumn: "1 / -1" },
+              "& > :nth-child(1)": { gridColumn: { md: "span 3" } },
+              "& > :nth-child(2)": { gridColumn: { md: "span 3" } },
+              "& > :nth-child(3)": { gridColumn: { md: "span 4" } },
+              "& > :nth-child(4)": { gridColumn: { md: "span 2" } },
+              "& > :nth-child(5)": { gridColumn: { md: "span 4" } },
+              "& > :nth-child(6)": { gridColumn: { md: "span 3" } },
+              "& > :nth-child(7)": { gridColumn: { md: "span 5" } },
+            }}
           >
             <Grid item xs={12} sm={4} md={3} lg={3}>
               <ProfileCard
@@ -779,10 +791,10 @@ const CEOComponent = () => {
             </Grid>
             <Grid item xs={12}>
               <Box sx={{ display: "flex", flexDirection: "column", gap: 2, width: "100%" }}>
-                <Grid item>
-                  <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }, gap: 2, width: "100%" }}>
+                <Grid item xs={12}>
+                  <Box sx={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 2, width: "100%" }}>
                     {cardData.map((card, index) => (
-                      <Grid item xs={12} sm={6} md={4} key={index}>
+                      <Grid item xs={6} key={index}>
                         <Card
                           sx={{
                             borderRadius: 3,

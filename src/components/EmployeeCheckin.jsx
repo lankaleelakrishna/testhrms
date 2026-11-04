@@ -337,7 +337,7 @@ const EmployeeCheckin = () => {
 
   if (roleLoading) {
     return (
-      <Container
+      <Container maxWidth={false}
         sx={{
           p: 2,
           boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
@@ -365,7 +365,7 @@ const EmployeeCheckin = () => {
 
   if (roleError) {
     return (
-      <Container
+      <Container maxWidth={false}
         sx={{
           p: 2,
           boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
@@ -401,7 +401,7 @@ const EmployeeCheckin = () => {
   }
 
   return (
-    <Container
+    <Container maxWidth={false}
       sx={{
         p: 2,
         boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
